@@ -3,21 +3,6 @@ Everyone who has tried to mess around with their Ubuntu distro knows the pain of
 
 These are the scripts that I use to set my Ubuntu up as quick as possible. Feel free to fork it and create your own version, and any contributions are more than welcome :)
 
-## Build Status:
-
-Every script is rock stable and runs against [Travis CI](https://travis-ci.org) to make sure everything works as expected. Note that `Build-ML.sh` is not shown here as it takes >2 hours to build TF+Pytorch on the Travis systems from source, and 2 hours is the system limit for free accounts on Travis. You can, however, still see the results of it running [here](https://travis-ci.org/rsnk96/Ubuntu-Setup-Scripts)
-
-
-| 1-BasicSetUp and 2-GenSoftware | 3-ML-Basic | Build-OpenCV  | Build-OpenCV in a conda env |
-|-------------------|-------------------|-------------------|--------------------|
-| [![Build1][5]][11] | [![Build2][7]][11] | [![Build3][6]][11] | [![Build4][8]][11] |
-
-[5]: https://travis-matrix-badges.herokuapp.com/repos/rsnk96/Ubuntu-Setup-Scripts/branches/master/5
-[6]: https://travis-matrix-badges.herokuapp.com/repos/rsnk96/Ubuntu-Setup-Scripts/branches/master/6
-[7]: https://travis-matrix-badges.herokuapp.com/repos/rsnk96/Ubuntu-Setup-Scripts/branches/master/7
-[8]: https://travis-matrix-badges.herokuapp.com/repos/rsnk96/Ubuntu-Setup-Scripts/branches/master/8
-[11]: https://travis-ci.org/rsnk96/Ubuntu-Setup-Scripts
-
 ## Usage instructions
 First download/clone this repository
 
@@ -47,8 +32,6 @@ Additional scripts to built libraries from source:
 * `update`: Runs `sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove -y`
 * `tsux`: Create a tmux session with `-u` (so that the icons(battery, etc) are properly displayed at the bottom), and with a window with `htop`, `nvidia-smi -l 1` and `lm-sensors` automatically activated.
     - Reason for not making this the default tmux: You cannot attach tmux sessions if you alias the `tmux` command itself
-* `aria`: For accelerated download of files using aria2c. Runs the following command: `aria2c --file-allocation=none -c -x 10 -s 10 -d aria2-downloads`
-
 <br>
 
 ## Notes
