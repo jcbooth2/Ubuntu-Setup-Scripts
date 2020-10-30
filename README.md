@@ -21,19 +21,6 @@ Additional scripts to built libraries from source:
 * Default python will be changed to Anaconda, with the latest Python 3. Anaconda Python will be installed in `/opt/anaconda3/` so that it is accessible by multiple users
 * Default shell is changed to Zim, a zsh plugin, instead of bash. Why zsh? Because it simply has a much better autocomplete. And why zim? Because it's much faster than Oh My Zsh and Prezto
 
-## Aliases that are added
-* `maxvol` : Will set your volume to 150%
-* `download <webpage-name>`: Download the webpage and all sub-directories linked to it
-* `server` : Sets up a server for file sharing in your local network. Whatever is in your current directory will be visible on the ip. It will also print the possible set of IP addresses. To access from another computer, shoot up a browser and simply hit `ip_add:port`
-* `gpom` : Alias for `git push origin master`. Will push your current directory
-* `jn` : Starts a jupyter notebook in that directory
-* `jl` : Starts a jupyter lab in that directory
-* `ydl "URL"`: Downloads the song at `URL` at 128kbps, 44.1kHz in m4a format with the title and song name automatically set in the metadata
-* `update`: Runs `sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove -y`
-* `tsux`: Create a tmux session with `-u` (so that the icons(battery, etc) are properly displayed at the bottom), and with a window with `htop`, `nvidia-smi -l 1` and `lm-sensors` automatically activated.
-    - Reason for not making this the default tmux: You cannot attach tmux sessions if you alias the `tmux` command itself
-<br>
-
 ## Notes
 * If you are using this script to set up a computer with many users,
     * You need to run these scripts using **only one** user, say `first_user`. But make sure you have **logged in at least once** into the new user so that the home directory of the other user is instantiated.
