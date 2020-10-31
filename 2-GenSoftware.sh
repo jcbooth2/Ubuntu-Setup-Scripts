@@ -33,7 +33,7 @@ execute sudo apt-get install arc-theme -y
 
 # Install code editor of your choice
 if [[ ! -n $CIINSTALL ]]; then
-    read -p "Download and Install VS Code / Atom / Sublime. Press q to skip this. Default: Skip Editor installation [v/a/s/q]: " tempvar
+    read -p "Download and Install VS Code / Atom / Sublime / Neovim. Press q to skip this. Default: Skip Editor installation [v/a/s/n/q]: " tempvar
 fi
 tempvar=${tempvar:-q}
 
@@ -56,7 +56,12 @@ elif [ "$tempvar" = "s" ]; then
     execute sudo apt-get install apt-transport-https -y
     execute sudo apt-get update
     execute sudo apt-get install sublime-text -y
-elif [ "$tempvar" = "q" ];then
+elif [ "$tempvar" = "n" ]; then
+    execute sudo add-apt-repository ppa:neovim-ppa/stable
+    execute sudo apt update
+    execute sudo apt install neovim
+    execute sudo apt install python3-neovim
+elif [ "$tempvar" = "q" ]; then
     echo "Skipping this step"
 fi
 
@@ -69,12 +74,6 @@ execute sudo apt-get install freeglut3 freeglut3-dev libxi-dev libxmu-dev -y
 # Enable partner repositories if disabled
 sudo sed -i.bak "/^# deb .*partner/ s/^# //" /etc/apt/sources.list
 execute sudo apt-get update
-
-if which nautilus > /dev/null; then
-    execute sudo apt-get install nautilus-dropbox -y
-elif which caja > /dev/null; then
-    execute sudo apt-get install caja-dropbox -y
-fi
 
 # TLP manager
 execute sudo add-apt-repository ppa:linrunner/tlp -y
@@ -153,10 +152,10 @@ execute mkdir -p ~/.cache/vlc   # For VLSub to work flawlessly
 execute sudo apt-get install vmg -y # Virtual magnifying glass, enabled by shortcut Super+<NumPadPlus>
 
 # Browsers
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+#wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+#sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 execute sudo apt-get update  -y
-execute sudo apt-get install google-chrome-stable -y
+#execute sudo apt-get install google-chrome-stable -y
 #execute sudo apt-get install chromium-browser -y
 execute sudo apt-get install firefox -y
 
